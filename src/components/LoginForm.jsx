@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+
+import { UserContext } from "../contexts/UserContext";
 
 const ROOT_URL = "http://yoshi.willandskill.eu:8999/api/v1/";
 const LOGIN_URL = `${ROOT_URL}auth/api-token-auth/`;
@@ -8,7 +10,7 @@ export default function LoginForm() {
   const history = useHistory();
   const [email, setEmail] = useState("test.user@willandskill.se");
   const [password, setPassword] = useState("js-lesson-10");
-  const [token, setToken] = useState(null);
+  const { token, setToken } = useContext(UserContext);
 
   function login() {
     const payload = {
@@ -26,6 +28,8 @@ export default function LoginForm() {
       .then((res) => res.json())
       .then((data) => {
         setToken(data.token);
+        //det history gör= när vi har loggat in då är det dags
+        //att skickas vidare till event-list
         history.push("event-list");
       });
   }

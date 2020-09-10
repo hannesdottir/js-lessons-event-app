@@ -23,7 +23,7 @@ password: js-lesson-10
 
 - styled components
 
-App.js
+App.js (token, setToken)
 
 - LoginPage
   -LoginForm (innhåller token som en state variabel)

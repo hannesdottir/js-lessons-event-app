@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function EventListPage() {
-  return <div></div>;
+  const { token } = useContext(UserContext);
+  return (
+    <div>
+      <h1>Event List Page</h1>
+      {token}
+    </div>
+  );
 }
