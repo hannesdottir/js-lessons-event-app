@@ -19,5 +19,12 @@ password: js-lesson-10
 
 ## Externa paket att installera
 
-react router dom
-styled components
+- react router dom
+
+- styled components
+
+App.js
+
+- LoginPage
+  -LoginForm (innhåller token som en state variabel)
+  -EventPage
