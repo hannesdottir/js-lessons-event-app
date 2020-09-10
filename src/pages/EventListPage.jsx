@@ -23,7 +23,7 @@ export default function EventListPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results);
+        setEventList(data.results);
       });
   }
 

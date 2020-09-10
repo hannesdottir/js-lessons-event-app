@@ -41,12 +41,12 @@ export default function EventDetailPage(props) {
     <div>
       {mainPageData && (
         <div>
-          <h1>{mainPageData}</h1>
+          <h1>{mainPageData.title}</h1>
           <p>{mainPageData.description}</p>
           {mainPageData.actionPoints &&
-            mainPageData.actionPoints.map((actionPoint) => {
+            mainPageData.actionPoints.map((actionPoint, index) => {
               return (
-                <div key={actionPoint.id}>
+                <div key={index}>
                   <p>{actionPoint.title}</p>
                 </div>
               );
