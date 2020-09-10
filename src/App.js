@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+const ROOT_URL = "http://yoshi.willandskill.eu:8999/api/v1/";
+const LOGIN_URL = `${ROOT_URL}auth/api-token-auth/`;
 
 function App() {
+  function login() {
+    console.log("login");
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Lesson 10 - Event App</h1>
+      <div>
+        <div>
+          <label>
+            Email <input name="email" placeholder="john.doe@company.com" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Password <input name="password" type="password" />
+          </label>
+        </div>
+        <button onClick={login}>Login</button>
+      </div>
     </div>
   );
 }
