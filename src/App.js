@@ -27,7 +27,7 @@ function App() {
             name="email"
             type="email"
             value={email}
-            onChange={(event) => console.log(event.currentTarget.value)}
+            onChange={(event) => setEmail(event.currentTarget.value)}
             placeholder="john.doe@company.com"
           />
         </div>
@@ -37,7 +37,7 @@ function App() {
             name="password"
             type="password"
             value={password}
-            onChange={(event) => console.log(event.currentTarget.value)}
+            onChange={(event) => setPassword(event.currentTarget.value)}
           />
         </div>
         <button onClick={login}>Login</button>
