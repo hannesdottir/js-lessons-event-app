@@ -1,42 +1,24 @@
 import React, { useEffect, useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContext";
-
-/*
-ROOT URL: http://yoshi.willandskill.eu:8999/api/v1/
-
-LOGIN URL: ROOT URL + auth/api-token-auth/
-
-EVENT LIST URL: ROOT URL + events/events/
-
-EVENT PAGE LIST: ROOT URL + cms/{event_slug}/pages
-
-EVENT MAIN PAGE: ROOT URL + cms/{event_slug}/main-page/
-
-*/
-
-const ROOT_URL = "http://yoshi.willandskill.eu:8999/api/v1/";
+import EventKit from "../data/EventKit";
 
 export default function EventDetailPage(props) {
-  const { token } = useContext(UserContext);
   const [mainPageData, setMainPageData] = useState(null);
+  const eventKit = new EventKit();
+
   useEffect(() => {
     fetchEventMainPage();
   }, []);
 
   function fetchEventMainPage() {
     const currentSlug = props.match.params.slug;
-    const eventMainPageUrl = `${ROOT_URL}cms/${currentSlug}/main-page/`;
-    fetch(eventMainPageUrl, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    eventKit
+      .fetchEventMainPage(currentSlug)
       .then((res) => res.json())
       .then((data) => {
         setMainPageData(data);
       });
   }
+
   return (
     <div>
       {mainPageData && (
